@@ -30,6 +30,12 @@ CREATE TABLE success_killed(
   KEY idx_create_time(create_time)
 )ENGINE=InnoDB AUTO_INCREMENT=1000 DEFAULT CHARSET=utf8 COMMENT='秒杀成功明细表';
 
+-- 学生表
+CREATE TABLE student(
+  stu_name varchar(120) NOT NULL COMMENT '学生名',
+  age int NOT NULL COMMENT '年龄'
+)ENGINE=InnoDB AUTO_INCREMENT=1000 DEFAULT CHARSET=utf8 COMMENT='学生表';
+
 -- 初始化数据
 INSERT INTO seckill(name,number,start_time,end_time)
 VALUES

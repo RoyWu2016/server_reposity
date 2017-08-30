@@ -17,6 +17,7 @@ import com.roy.publics.seckill.exception.RepeatKillException;
 import com.roy.publics.seckill.exception.SecKillCloseException;
 import com.roy.publics.seckill.exception.SecKillException;
 import com.roy.publics.seckill.service.SecKillService;
+import com.roy.publics.utils.ProtoStuffUtil;
 import com.roy.server.seckill.dao.SecKillDao;
 import com.roy.server.seckill.dao.SuccessKilledDao;
 
@@ -45,8 +46,9 @@ public class SecKillServiceImpl implements SecKillService {
 		return secKillDao.queryAll(0, 4);
 	}
 
-	public SecKill getById(long secKillId) {
-		return secKillDao.queryById(secKillId);
+	public byte[] getById(long secKillId) throws Exception {
+//		throw new Exception("roy test") ;
+		return ProtoStuffUtil.serializer(secKillDao.queryById(secKillId));
 	}
 
 	public Exposer exportSecKillUrl(long secKillId) {
