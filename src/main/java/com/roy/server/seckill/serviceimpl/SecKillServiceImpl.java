@@ -48,6 +48,9 @@ public class SecKillServiceImpl implements SecKillService {
 
 	public byte[] getById(long secKillId) throws Exception {
 //		throw new Exception("roy test") ;
+		SecKill kill = secKillDao.queryById(secKillId);
+		String newName = kill.getName();
+		kill.setName(newName + "get from port 8094");
 		return ProtoStuffUtil.serializer(secKillDao.queryById(secKillId));
 	}
 
