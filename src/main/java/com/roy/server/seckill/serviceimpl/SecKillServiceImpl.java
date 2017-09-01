@@ -51,7 +51,7 @@ public class SecKillServiceImpl implements SecKillService {
 		SecKill kill = secKillDao.queryById(secKillId);
 		String newName = kill.getName();
 		kill.setName(newName + "get from port 8094");
-		return ProtoStuffUtil.serializer(secKillDao.queryById(secKillId));
+		return ProtoStuffUtil.serializer(kill);
 	}
 
 	public Exposer exportSecKillUrl(long secKillId) {
