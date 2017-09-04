@@ -50,7 +50,7 @@ public class SecKillServiceImpl implements SecKillService {
 //		throw new Exception("roy test") ;
 		SecKill kill = secKillDao.queryById(secKillId);
 		String newName = kill.getName();
-		kill.setName(newName + "get from port 8094 i changed for next build");
+		kill.setName(newName + "get from port 8094 build again");
 		return ProtoStuffUtil.serializer(kill);
 	}
 
