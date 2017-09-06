@@ -53,7 +53,7 @@ public class SecKillServiceImpl implements SecKillService {
 //		kill.setName("centos7");
 //		kill.setNumber(100);
 		String newName = kill.getName();
-		kill.setName(newName + "get from local port 8094");
+		kill.setName(newName + "get from local centos 8091");
 		return ProtoStuffUtil.serializer(kill);
 	}
 
