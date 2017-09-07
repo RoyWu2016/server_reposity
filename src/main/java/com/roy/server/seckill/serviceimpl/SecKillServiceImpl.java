@@ -3,11 +3,14 @@ package com.roy.server.seckill.serviceimpl;
 import java.util.Date;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.DigestUtils;
 
+import com.alibaba.fastjson.JSON;
 import com.roy.publics.seckill.bean.SecKill;
 import com.roy.publics.seckill.bean.SuccessKilled;
 import com.roy.publics.seckill.dto.Exposer;
@@ -32,6 +35,8 @@ import com.roy.server.seckill.dao.SuccessKilledDao;
  */
 @Service("seckillService")
 public class SecKillServiceImpl implements SecKillService {
+	
+	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@Autowired
 	private SecKillDao secKillDao;
@@ -49,6 +54,7 @@ public class SecKillServiceImpl implements SecKillService {
 	public byte[] getById(long secKillId) throws Exception {
 //		throw new Exception("roy test") ;
 		SecKill kill = secKillDao.queryById(secKillId);
+		logger.info("get seckill successfully: " + JSON.toJSONString(kill));
 //		SecKill kill = new SecKill();
 //		kill.setName("centos7");
 //		kill.setNumber(100);
